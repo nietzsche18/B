@@ -1,0 +1,53 @@
+    <div class="container">
+        
+        <!-- Tableau a la carte-->    
+        <h2>A la Carte</h2>
+        <table class="table">
+
+            <!-- Header tableau -->    
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Contenu</th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+            <!-- Body tableau -->    
+            <tbody>
+                <tr ng-repeat="drink in drinklist">
+                    <td>{{drink.name}}</td>
+                    <td>{{drink.content}}</td> 
+                    <!-- Bouton envoyant l'id de la commande dans le scope -->
+                    <td><button type="button" class="btn btn-Primary" ng-click="addOrder(drink._id)">Commander</button></td> 
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Tableau commandes-->            
+        <h2>Verres Commandés</h2>
+        <table class="table">
+            
+            <!-- Header tableau -->    
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+            <!-- Body tableau -->    
+            <tbody>
+                <tr ng-repeat="order in orderlist">
+                    <td>{{order.number}}</td>
+                    <td>{{order.drinks}}</td> 
+                    <td>{{order.state}}</td>
+                    <!-- Bouton envoyant l'id de la commande dans le scope -->
+                    <td><button type="button" class="btn btn-Primary" ng-click="endOrder(order)" >Terminer</button></td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
